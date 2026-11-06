@@ -1,22 +1,15 @@
-from typing import TypedDict
+from typing import TypedDict, Dict, Any
 
 
-class StockState(TypedDict):
-
+class StockState(TypedDict, total=False):
     stock_symbol: str
+    stock_data: Dict[str, Any]
+    fundamental_data: Dict[str, Any]
+    technical_data: Dict[str, Any]
+    risk_data: Dict[str, Any]
 
-    stock_data: dict
-
-    fundamental_data: str
-
-    technical_data: dict
-
-    risk_data: dict
-
-    news_data: str
-
-    sentiment_data: str
+    # Merged news + sentiment (dict, not str)
+    news_data: Dict[str, Any]
 
     strategy: str
-
     analysis: str
